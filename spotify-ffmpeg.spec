@@ -3,8 +3,8 @@
 %global         __provides_exclude ^(lib.*\\.so.*)$
 
 Name:           spotify-ffmpeg
-Version:        0.10.16
-Release:        3%{?dist}
+Version:        3.4.6
+Release:        1%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL
 URL:            http://ffmpeg.org
@@ -13,6 +13,7 @@ Source0:        https://ffmpeg.org/releases/ffmpeg-%{version}.tar.bz2
 
 ExclusiveArch:  x86_64 %{ix86}
 
+BuildRequires:  gcc
 BuildRequires:  yasm
 
 Requires:       spotify-client%{?_isa}
@@ -38,10 +39,10 @@ versions of specific libraries in a non-standard path.
     --disable-stripping \
     --disable-swscale \
     --enable-gpl \
-    --enable-runtime-cpudetect \
     --enable-shared \
     --enable-version3 \
     --libdir='%{_libdir}' \
+    --optflags="%{optflags}" \
     --prefix='%{_prefix}' \
     --shlibdir='%{_libdir}/spotify-client' \
 
@@ -51,17 +52,17 @@ versions of specific libraries in a non-standard path.
 %make_install
 rm -fr %{buildroot}%{_includedir} \
     %{buildroot}%{_libdir}/pkgconfig \
-    %{buildroot}%{_libdir}/spotify-client/*.so
-
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+    %{buildroot}%{_libdir}/spotify-client/*.so \
+    %{buildroot}%{_datadir}/ffmpeg
 
 %files
-%license LICENSE
+%license COPYING.GPLv3
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Sat Apr 13 2019 Simone Caronni <negativo17@gmail.com> - 3.4.6-1
+- Update to 3.4.6.
+
 * Wed Mar 01 2017 Simone Caronni <negativo17@gmail.com> - 0.10.16-3
 - Move all libraries to Spotify private location.
 - Update description, summary.
