@@ -1,10 +1,10 @@
 # Remove bundled libraries from requirements/provides
-%global         __requires_exclude ^(libav.*\\.so\\..*|libpostproc\\.so\\..*|libswresample\\.so\\..*)$
+%global         __requires_exclude ^(libav.*\\.so\\..*)$
 %global         __provides_exclude ^(lib.*\\.so.*)$
 
 Name:           spotify-ffmpeg
 Version:        3.4.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL
 URL:            http://ffmpeg.org
@@ -35,8 +35,10 @@ versions of specific libraries in a non-standard path.
     --disable-ffserver \
     --disable-indevs \
     --disable-outdevs \
+    --disable-postproc \
     --disable-static \
     --disable-stripping \
+    --disable-swresample \
     --disable-swscale \
     --enable-gpl \
     --enable-shared \
@@ -44,7 +46,7 @@ versions of specific libraries in a non-standard path.
     --libdir='%{_libdir}' \
     --optflags="%{optflags}" \
     --prefix='%{_prefix}' \
-    --shlibdir='%{_libdir}/spotify-client' \
+    --shlibdir='%{_libdir}/spotify-client'
 
 %make_build
 
@@ -60,6 +62,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Wed Jul 24 2019 Simone Caronni <negativo17@gmail.com> - 3.4.6-2
+- Disable swresample and postproc.
+
 * Sat Apr 13 2019 Simone Caronni <negativo17@gmail.com> - 3.4.6-1
 - Update to 3.4.6.
 
