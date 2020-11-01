@@ -2,9 +2,11 @@
 %global         __requires_exclude ^(libav.*\\.so\\..*)$
 %global         __provides_exclude ^(lib.*\\.so.*)$
 
+%global         _lto_cflags %{nil}
+
 Name:           spotify-ffmpeg
 Version:        3.4.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL
 URL:            http://ffmpeg.org
@@ -62,6 +64,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Sun Nov 01 2020 Simone Caronni <negativo17@gmail.com> - 3.4.6-3
+- Fix build on Fedora 33+.
+
 * Wed Jul 24 2019 Simone Caronni <negativo17@gmail.com> - 3.4.6-2
 - Disable swresample and postproc.
 
