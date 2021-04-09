@@ -5,8 +5,8 @@
 %global         _lto_cflags %{nil}
 
 Name:           spotify-ffmpeg
-Version:        3.4.6
-Release:        3%{?dist}
+Version:        3.4.8
+Release:        1%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL
 URL:            http://ffmpeg.org
@@ -64,6 +64,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Fri Apr 09 2021 Simone Caronni <negativo17@gmail.com> - 3.4.8-1
+- Update to 3.4.8.
+
 * Sun Nov 01 2020 Simone Caronni <negativo17@gmail.com> - 3.4.6-3
 - Fix build on Fedora 33+.
 
