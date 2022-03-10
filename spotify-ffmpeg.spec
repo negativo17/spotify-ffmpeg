@@ -5,7 +5,7 @@
 %global         _lto_cflags %{nil}
 
 Name:           spotify-ffmpeg
-Version:        3.4.8
+Version:        3.4.9
 Release:        1%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL
@@ -64,6 +64,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Thu Mar 10 2022 Simone Caronni <negativo17@gmail.com> - 3.4.9-1
+- Update to 3.4.9.
+
 * Fri Apr 09 2021 Simone Caronni <negativo17@gmail.com> - 3.4.8-1
 - Update to 3.4.8.
 
