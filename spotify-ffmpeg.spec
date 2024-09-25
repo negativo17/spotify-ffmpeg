@@ -5,10 +5,10 @@
 %global         _lto_cflags %{nil}
 
 Name:           spotify-ffmpeg
-Version:        3.4.13
+Version:        4.4.5
 Release:        1%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
-License:        GPL
+License:        GPL-3.0-or-later
 URL:            http://ffmpeg.org
 
 Source0:        https://ffmpeg.org/releases/ffmpeg-%{version}.tar.bz2
@@ -34,7 +34,6 @@ versions of specific libraries in a non-standard path.
     --disable-ffmpeg \
     --disable-ffplay \
     --disable-ffprobe \
-    --disable-ffserver \
     --disable-indevs \
     --disable-outdevs \
     --disable-postproc \
@@ -64,6 +63,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/*.so.*
 
 %changelog
+* Wed Sep 25 2024 Simone Caronni <negativo17@gmail.com> - 4.4.5-1
+- Update to 4.4.5.
+
 * Tue Nov 28 2023 Simone Caronni <negativo17@gmail.com> - 3.4.13-1
 - Update to 3.4.13.
 
