@@ -5,7 +5,7 @@
 %global         _lto_cflags %{nil}
 
 Name:           spotify-ffmpeg
-Version:        7.1.4
+Version:        7.1.5
 Release:        1%{?dist}
 Summary:        Spotify compatibility package - FFMpeg
 License:        GPL-3.0-or-later
@@ -63,6 +63,9 @@ rm -fr %{buildroot}%{_includedir} \
 %{_libdir}/spotify-client/libav*.so.*
 
 %changelog
+* Fri Sep 18 2026 Simone Caronni <negativo17@gmail.com> - 7.1.5-1
+- Update to 7.1.5.
+
 * Sat May 09 2026 Simone Caronni <negativo17@gmail.com> - 7.1.4-1
 - Update to 7.1.4.
 
